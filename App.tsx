@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Animated,
 } from 'react-native';
 
 import {
@@ -29,8 +30,11 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
+function Section({ children, title }: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const test = {
+    color: isDarkMode ? Colors.white : Colors.black,
+  };
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -46,7 +50,7 @@ function Section({children, title}: SectionProps): JSX.Element {
         style={[
           styles.sectionDescription,
           {
-            color: isDarkMode ? Colors.light : Colors.dark,
+            // color: isDarkMode ? Colors.light : Colors.dark
           },
         ]}>
         {children}
@@ -77,7 +81,11 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            Edit
+            {' '}
+            <Text style={styles.highlight}>App.tsx</Text>
+            {' '}
+            to change this
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
