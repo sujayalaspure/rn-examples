@@ -24,15 +24,20 @@ const Dropdown = () => {
     setIsVisible(prev => !prev);
   };
 
-  const onLayout = (event: any) => {
-    console.log('onLayout', event.nativeEvent.layout);
-    const { x, y, width, height } = event.nativeEvent.layout;
-    setPopUpSize({
-      height,
-      width,
-      top: parseInt(y, 10) + parseInt(height, 10),
-      left: x,
-    });
+  const onLayout = () => {
+    if (DropdownRef && DropdownRef.current) {
+      // @ts-expect-error ref error measure might be null
+      DropdownRef.current.measure(
+        (fx: any, fy: any, width: any, height: any, px: any, py: string) => {
+          setPopUpSize({
+            height,
+            width,
+            top: parseInt(py, 10),
+            left: px,
+          });
+        }
+      );
+    }
   };
 
   const onCloseModal = () => {

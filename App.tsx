@@ -30,7 +30,7 @@ function App(): JSX.Element {
           <View
             style={{
               // justifyContent: 'flex-end',
-              paddingVertical: 600,
+              paddingVertical: 400,
               // height: '100%',
               // width: '100%',
               paddingHorizontal: 20,

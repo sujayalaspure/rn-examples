@@ -51,6 +51,12 @@ const DropdownModal = ({
 
   const maxHeight = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(1)).current;
+  const containerHeightThreshold = shouldShowAtBottom
+    ? Math.min(
+      MAX_HEIGHT,
+      screenHeight - (popUpSize.top + popUpSize.height * 2)
+    )
+    : MAX_HEIGHT;
 
   const { left, width } = popUpSize;
 
@@ -68,7 +74,7 @@ const DropdownModal = ({
       Animated.timing(translateY, {
         toValue: 0,
         duration: ANIMATE_DURATION,
-        useNativeDriver: false,
+        useNativeDriver: true,
       }).start();
     }
   }, [isVisible]);
@@ -110,7 +116,7 @@ const DropdownModal = ({
     Animated.timing(translateY, {
       toValue: 1,
       duration: ANIMATE_DURATION,
-      useNativeDriver: false,
+      useNativeDriver: true,
     }).start();
   }, []);
 
@@ -139,9 +145,12 @@ const DropdownModal = ({
           style={[
             styles.popupContainer,
             {
-              top: shouldShowAtBottom
-                ? popUpSize.top + 5
-                : popUpSize.top - MAX_HEIGHT + popUpSize.height,
+              ...(shouldShowAtBottom && {
+                top: popUpSize.top,
+              }),
+              ...(!shouldShowAtBottom && {
+                bottom: screenHeight - popUpSize.top - popUpSize.height,
+              }),
               left,
               width,
             },
@@ -151,7 +160,7 @@ const DropdownModal = ({
               defaultValue={inputPlaceholder}
               autoFocus
               style={[styles.inputStyle, styles.innerContainer, { height: 42 }]}
-              placeholder={inputPlaceholder || 'Search'}
+              placeholder={inputPlaceholder || 'Select'}
               onChangeText={onSearch}
             />
           )}
@@ -167,12 +176,7 @@ const DropdownModal = ({
             }}>
             <FlatList
               style={{
-                maxHeight: shouldShowAtBottom
-                  ? Math.min(
-                    MAX_HEIGHT,
-                    screenHeight - (popUpSize.top + popUpSize.height * 2)
-                  )
-                  : MAX_HEIGHT,
+                maxHeight: containerHeightThreshold,
               }}
               data={options}
               renderItem={RenderListItem}
