@@ -3034,6 +3034,26 @@ commander@~2.13.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
   integrity sha512-MVuS359B+YzaWqjCL/c+22gfryv+mCBPHAv3zyVI2GN8EY6IRP8VwtasXn8jyyhvvq84R4ImN1OKRtcbIasjYA==
 
+commitlint-config-jira@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/commitlint-config-jira/-/commitlint-config-jira-1.6.4.tgz#0314968d0b929c84d4863b0a32efa664c500c953"
+  integrity sha512-DNVOzQZgNPZuFYU61mVRssm0t+4IR7eF5VQA3RCGYdz45usauekjguOXJmV3uxEHIoqVDctKN2UrUlhbKCymrQ==
+  dependencies:
+    commitlint-jira-utils "^1.6.4"
+    opencollective-postinstall "^2.0.2"
+
+commitlint-jira-utils@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/commitlint-jira-utils/-/commitlint-jira-utils-1.6.4.tgz#b55b6dda4047a33de57500056be0abaa076ecb5c"
+  integrity sha512-1Mp5b0Q31XBreH3EKrDy8sD6vZmcXFm1x6OXeskaiiOKm5C1qQ0ObOiF66RKozuUAixaOGgHje6N/T+nfd5GBA==
+
+commitlint-plugin-jira-rules@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-jira-rules/-/commitlint-plugin-jira-rules-1.6.4.tgz#fedca92cd3a266f580b32d9c58d467b230999e37"
+  integrity sha512-e+5pfp6emYp02Qm0OCs8rvPApKpTK7+HpndA2R9RJzNY0kg2i2/CGHuWd+StigMZe1Wmeo/d3H8Cwwlz3biWxA==
+  dependencies:
+    commitlint-jira-utils "^1.6.4"
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -6541,6 +6561,11 @@ open@^6.2.0:
   integrity sha512-IFenVPgF70fSm1keSd2iDBIDIBZkroLeuffXq+wKTzTJlBpesFWojV9lb8mzOfaAzM1sr7HQHuO0vtV0zYekGg==
   dependencies:
     is-wsl "^1.1.0"
+
+opencollective-postinstall@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz#7a0fff978f6dbfa4d006238fbac98ed4198c3259"
+  integrity sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
 
 optionator@^0.9.1:
   version "0.9.1"
