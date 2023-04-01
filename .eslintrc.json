@@ -18,10 +18,7 @@
     // ***************************************** //
     // Don't remove/change these below rules
     "react-hooks/exhaustive-deps": "off",
-    "max-lines": [
-      "error",
-      { "max": 200, "skipBlankLines": true, "skipComments": true }
-    ],
+    "max-lines": ["error", { "max": 200, "skipBlankLines": true, "skipComments": true }],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-closing-bracket-location": "off",
     "object-curly-newline": "off",
@@ -47,7 +44,7 @@
     "max-len": [
       "error",
       {
-        "code": 400,
+        "code": 120,
         "ignoreComments": true,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true,
