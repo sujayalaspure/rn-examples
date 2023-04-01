@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const useFetchData = () => {
   const [data, setData] = useState([]);
@@ -9,7 +9,6 @@ const useFetchData = () => {
     'https://randomuser.me/api/?results=50&inc=id,gender,name,nat,email';
 
   const fetchData = async () => {
-    console.log('fetching data');
     try {
       const response = await fetch(url);
       const json = await response.json();
