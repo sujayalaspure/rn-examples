@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "airbnb",
@@ -39,6 +40,17 @@
     "import/no-extraneous-dependencies": "off",
     "react/function-component-definition": "off",
     "arrow-parens": "off",
+    "import/extensions": [
+      "warn",
+      "ignorePackages",
+      {
+        "": "never",
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
 
     "no-void": ["error", { "allowAsStatement": true }],
     "max-len": [
