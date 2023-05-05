@@ -13,6 +13,7 @@
 - [ ] 🍕 New Feature
 - [ ] 🐛 Bug Fix
 - [ ] 🧑‍💻 Code Refactor
+- [ ] 📝 Documentation Update
 - [ ] 🔥 Performance Improvements
 - [ ] ✅ Test
 - [ ] 🤖 Build
