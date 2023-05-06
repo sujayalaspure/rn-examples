@@ -1,12 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const useFetchData = () => {
-  const [data, setData] = useState([]);
+export type RandomuserAPIResponse = {
+  loading: boolean;
+  error: any;
+  data: RandomuserResponseData[];
+};
+
+export type RandomuserResponseData = {
+  name: {
+    title: string;
+    first: string;
+    last: string;
+  };
+  email: string;
+  picture: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
+  id: {
+    name: string;
+    value: string;
+  };
+  login: {
+    uuid: string;
+    username: string;
+    password: string;
+    salt: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+  };
+};
+
+const useFetchData = (): RandomuserAPIResponse => {
+  const [data, setData] = useState<RandomuserResponseData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const url =
-    'https://randomuser.me/api/?results=50&inc=id,gender,name,nat,email';
+  const url = 'https://randomuser.me/api/?results=50&inc=id,gender,name,nat,email,picture,login';
 
   const fetchData = async () => {
     try {
@@ -25,7 +57,7 @@ const useFetchData = () => {
   return {
     data,
     loading,
-    error,
+    error
   };
 };
 

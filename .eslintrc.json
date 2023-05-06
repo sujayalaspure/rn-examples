@@ -37,6 +37,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/semi": "off",
     "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "import/no-extraneous-dependencies": "off",
     "react/function-component-definition": "off",
     "arrow-parens": "off",

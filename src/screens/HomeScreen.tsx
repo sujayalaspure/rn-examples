@@ -1,5 +1,7 @@
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import React from 'react';
+import screenlist from '../navigator/routes';
+// import * as screenList from '.';
 
 interface Props {
   navigation: any;
@@ -7,9 +9,9 @@ interface Props {
 
 const HomeScreen = ({ navigation }: Props) => (
   <View>
-    <Text>HomeScreen</Text>
-    <Button title="Go to Dropdown" onPress={() => navigation.navigate('Dropdown')} />
-    <Button title="Go to Signin" onPress={() => navigation.navigate('Signin')} />
+    {screenlist.map(({ id, name }) => (
+      <Button key={id} title={`Go to ${name}`} onPress={() => navigation.navigate(name)} />
+    ))}
   </View>
 );
 
