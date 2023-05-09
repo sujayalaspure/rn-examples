@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import DropdownModal from './DropdownModal';
-import useFetchData from './useFetchData';
+import { RandomuserAPIResponse } from './useFetchData';
+import useFetchData from '../../hooks/useFetchData';
 
 const Dropdown = () => {
   const DropdownRef = React.useRef(null);
@@ -18,7 +19,9 @@ const Dropdown = () => {
     height: 0
   });
 
-  const { data } = useFetchData();
+  const { data } = useFetchData<RandomuserAPIResponse>({
+    url: 'https://randomuser.me/api/?results=50&inc=id,gender,name,nat,email,picture,login'
+  });
 
   const togglePopup = () => {
     // @ts-expect-error ref error measure might be null
@@ -47,7 +50,7 @@ const Dropdown = () => {
   };
 
   return (
-    <>
+    <KeyboardAvoidingView behavior="position">
       <View ref={DropdownRef} style={styles.actionButton}>
         <Pressable style={styles.inputStyle} onPress={togglePopup}>
           <Text>{selectedItem.value ? selectedItem.value : 'Select'}</Text>
@@ -58,12 +61,12 @@ const Dropdown = () => {
         modalTriggerSize={modalTriggerSize}
         onClose={onCloseModal}
         isVisible={isVisible}
-        options={data}
+        options={data?.results || []}
         renderItem={renderItem}
         onSelectItem={onSelectItem}
         inputPlaceholder={selectedItem.value}
       />
-    </>
+    </KeyboardAvoidingView>
   );
 };
 

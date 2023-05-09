@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen, SigninScreen } from '../screens';
-import DropdownView from '../screens/DropdownView';
+import screenlist from './routes';
+import HomeScreen from '../screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -9,8 +9,9 @@ function Navigator() {
   return (
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Dropdown" component={DropdownView} />
-      <Stack.Screen name="Signin" component={SigninScreen} />
+      {screenlist.map(screen => (
+        <Stack.Screen key={screen.name} {...screen} />
+      ))}
     </Stack.Navigator>
   );
 }

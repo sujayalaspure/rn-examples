@@ -2,6 +2,11 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 
 import SigninScreen from '../SigninScreen';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('react-native-reanimated/lib/commonjs/reanimated2/jestUtils').setUpTests();
+
+// eslint-disable-next-line global-require
+jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
 
 describe('SigninScreen', () => {
   it('matches the snapshot', () => {
