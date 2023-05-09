@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { NavigationProp } from '@react-navigation/native';
 import { FlatList } from 'react-native-gesture-handler';
 import BottomSheet, { BottomSheetRef } from '../projects/bottomsheet/BottomSheet';
-import useFetchData, { RandomuserResponseData } from '../projects/dropdown/useFetchData';
+import { RandomuserAPIResponse, RandomuserResponseData } from '../projects/dropdown/useFetchData';
+import useFetchData from '../hooks/useFetchData';
 
 type Props = {
   navigation: NavigationProp<any>;
@@ -11,7 +12,9 @@ type Props = {
 
 const BottomSheetView = ({ navigation }: Props) => {
   const sheetRef = React.useRef<BottomSheetRef>(null);
-  const { data } = useFetchData();
+  const { data } = useFetchData<RandomuserAPIResponse>({
+    url: 'https://randomuser.me/api/?results=50&inc=id,gender,name,nat,email,picture,login'
+  });
   const [shouldScroll, setShouldScroll] = useState(false);
   useEffect(() => {
     navigation.setOptions({
@@ -44,7 +47,7 @@ const BottomSheetView = ({ navigation }: Props) => {
         <View style={{ flex: 1 }}>
           <FlatList
             scrollEnabled={shouldScroll}
-            data={data}
+            data={data?.results}
             renderItem={ListItem}
             keyExtractor={item => item.login.uuid}
             ListFooterComponent={<View style={{ height: 10, backgroundColor: 'red' }} />}

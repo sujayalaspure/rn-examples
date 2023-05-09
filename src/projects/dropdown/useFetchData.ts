@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export type RandomuserAPIResponse = {
-  loading: boolean;
-  error: any;
-  data: RandomuserResponseData[];
+  results: RandomuserResponseData[];
 };
 
 export type RandomuserResponseData = {
@@ -33,7 +31,7 @@ export type RandomuserResponseData = {
   };
 };
 
-const useFetchData = (): RandomuserAPIResponse => {
+const useFetchData = () => {
   const [data, setData] = useState<RandomuserResponseData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
