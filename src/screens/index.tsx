@@ -2,3 +2,4 @@
 export { default as SigninScreen } from './SigninScreen';
 export { default as BottomSheetView } from './BottomSheetView';
 export { default as DropdownView } from './DropdownView';
+export { default as TestScreen } from './TestScreen';
