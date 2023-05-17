@@ -37,6 +37,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rnexamples/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rnexamples/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-rnexamples-rnexamplesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnexamples-rnexamplesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		356A94992A0AAFB70008211A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-rnexamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnexamples.debug.xcconfig"; path = "Target Support Files/Pods-rnexamples/Pods-rnexamples.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-rnexamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnexamples.release.xcconfig"; path = "Target Support Files/Pods-rnexamples/Pods-rnexamples.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-rnexamples-rnexamplesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnexamples-rnexamplesTests.debug.xcconfig"; path = "Target Support Files/Pods-rnexamples-rnexamplesTests/Pods-rnexamples-rnexamplesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		13B07FAE1A68108700A75B9A /* rnexamples */ = {
 			isa = PBXGroup;
 			children = (
+				356A94982A0AAFA60008211A /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -104,6 +106,14 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-rnexamples-rnexamplesTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		356A94982A0AAFA60008211A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				356A94992A0AAFB70008211A /* MaterialCommunityIcons.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
