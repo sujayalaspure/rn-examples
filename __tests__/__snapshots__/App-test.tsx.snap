@@ -95,181 +95,335 @@ exports[`App should renders correctly 1`] = `
               ]
             }
           >
-            <View>
-              <View
-                accessibilityRole="button"
-                accessibilityState={
-                  {
-                    "busy": undefined,
-                    "checked": undefined,
-                    "disabled": undefined,
-                    "expanded": undefined,
-                    "selected": undefined,
-                  }
+            <View
+              style={
+                {
+                  "backgroundColor": "#002147",
+                  "flex": 1,
+                  "padding": 16,
                 }
-                accessibilityValue={
-                  {
-                    "max": undefined,
-                    "min": undefined,
-                    "now": undefined,
-                    "text": undefined,
-                  }
+              }
+            >
+              <RCTScrollView
+                data={
+                  [
+                    {
+                      "component": [Function],
+                      "id": "BottomSheetView",
+                      "name": "BottomSheetView",
+                    },
+                    {
+                      "component": [Function],
+                      "id": "DropdownView",
+                      "name": "DropdownView",
+                    },
+                    {
+                      "component": [Function],
+                      "id": "SigninScreen",
+                      "name": "SigninScreen",
+                    },
+                    {
+                      "component": [Function],
+                      "id": "TestScreen",
+                      "name": "TestScreen",
+                    },
+                  ]
                 }
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  {
-                    "opacity": 1,
-                  }
-                }
+                getItem={[Function]}
+                getItemCount={[Function]}
+                keyExtractor={[Function]}
+                onContentSizeChange={[Function]}
+                onLayout={[Function]}
+                onMomentumScrollBegin={[Function]}
+                onMomentumScrollEnd={[Function]}
+                onScroll={[Function]}
+                onScrollBeginDrag={[Function]}
+                onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
+                renderItem={[Function]}
+                scrollEventThrottle={50}
+                stickyHeaderIndices={[]}
+                viewabilityConfigCallbackPairs={[]}
               >
-                <View
-                  style={
-                    [
-                      {},
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "color": "#007AFF",
-                          "fontSize": 18,
-                          "margin": 8,
-                          "textAlign": "center",
-                        },
-                      ]
-                    }
+                <View>
+                  <View
+                    onFocusCapture={[Function]}
+                    onLayout={[Function]}
+                    style={null}
                   >
-                    Go to BottomSheetView
-                  </Text>
-                </View>
-              </View>
-              <View
-                accessibilityRole="button"
-                accessibilityState={
-                  {
-                    "busy": undefined,
-                    "checked": undefined,
-                    "disabled": undefined,
-                    "expanded": undefined,
-                    "selected": undefined,
-                  }
-                }
-                accessibilityValue={
-                  {
-                    "max": undefined,
-                    "min": undefined,
-                    "now": undefined,
-                    "text": undefined,
-                  }
-                }
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <View
-                  style={
-                    [
-                      {},
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      [
+                    <View
+                      style={
                         {
-                          "color": "#007AFF",
-                          "fontSize": 18,
-                          "margin": 8,
-                          "textAlign": "center",
-                        },
-                      ]
-                    }
+                          "flexDirection": "row",
+                        }
+                      }
+                    >
+                      <View
+                        accessibilityState={
+                          {
+                            "busy": undefined,
+                            "checked": undefined,
+                            "disabled": undefined,
+                            "expanded": undefined,
+                            "selected": undefined,
+                          }
+                        }
+                        accessibilityValue={
+                          {
+                            "max": undefined,
+                            "min": undefined,
+                            "now": undefined,
+                            "text": undefined,
+                          }
+                        }
+                        accessible={true}
+                        collapsable={false}
+                        focusable={true}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          {
+                            "alignItems": "center",
+                            "backgroundColor": "#003262",
+                            "borderColor": "#26619C",
+                            "borderRadius": 8,
+                            "borderWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "column",
+                            "height": 120,
+                            "justifyContent": "center",
+                            "margin": 2,
+                            "minWidth": 120,
+                            "padding": 8,
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={
+                            {
+                              "color": "white",
+                              "fontSize": 20,
+                              "fontWeight": "bold",
+                              "textAlign": "center",
+                            }
+                          }
+                        >
+                          Go to BottomSheetView
+                        </Text>
+                      </View>
+                      <View
+                        accessibilityState={
+                          {
+                            "busy": undefined,
+                            "checked": undefined,
+                            "disabled": undefined,
+                            "expanded": undefined,
+                            "selected": undefined,
+                          }
+                        }
+                        accessibilityValue={
+                          {
+                            "max": undefined,
+                            "min": undefined,
+                            "now": undefined,
+                            "text": undefined,
+                          }
+                        }
+                        accessible={true}
+                        collapsable={false}
+                        focusable={true}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          {
+                            "alignItems": "center",
+                            "backgroundColor": "#003262",
+                            "borderColor": "#26619C",
+                            "borderRadius": 8,
+                            "borderWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "column",
+                            "height": 120,
+                            "justifyContent": "center",
+                            "margin": 2,
+                            "minWidth": 120,
+                            "padding": 8,
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={
+                            {
+                              "color": "white",
+                              "fontSize": 20,
+                              "fontWeight": "bold",
+                              "textAlign": "center",
+                            }
+                          }
+                        >
+                          Go to DropdownView
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                  <View
+                    onFocusCapture={[Function]}
+                    onLayout={[Function]}
+                    style={null}
                   >
-                    Go to DropdownView
-                  </Text>
-                </View>
-              </View>
-              <View
-                accessibilityRole="button"
-                accessibilityState={
-                  {
-                    "busy": undefined,
-                    "checked": undefined,
-                    "disabled": undefined,
-                    "expanded": undefined,
-                    "selected": undefined,
-                  }
-                }
-                accessibilityValue={
-                  {
-                    "max": undefined,
-                    "min": undefined,
-                    "now": undefined,
-                    "text": undefined,
-                  }
-                }
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <View
-                  style={
-                    [
-                      {},
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      [
+                    <View
+                      style={
                         {
-                          "color": "#007AFF",
-                          "fontSize": 18,
-                          "margin": 8,
-                          "textAlign": "center",
-                        },
-                      ]
-                    }
-                  >
-                    Go to SigninScreen
-                  </Text>
+                          "flexDirection": "row",
+                        }
+                      }
+                    >
+                      <View
+                        accessibilityState={
+                          {
+                            "busy": undefined,
+                            "checked": undefined,
+                            "disabled": undefined,
+                            "expanded": undefined,
+                            "selected": undefined,
+                          }
+                        }
+                        accessibilityValue={
+                          {
+                            "max": undefined,
+                            "min": undefined,
+                            "now": undefined,
+                            "text": undefined,
+                          }
+                        }
+                        accessible={true}
+                        collapsable={false}
+                        focusable={true}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          {
+                            "alignItems": "center",
+                            "backgroundColor": "#003262",
+                            "borderColor": "#26619C",
+                            "borderRadius": 8,
+                            "borderWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "column",
+                            "height": 120,
+                            "justifyContent": "center",
+                            "margin": 2,
+                            "minWidth": 120,
+                            "padding": 8,
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={
+                            {
+                              "color": "white",
+                              "fontSize": 20,
+                              "fontWeight": "bold",
+                              "textAlign": "center",
+                            }
+                          }
+                        >
+                          Go to SigninScreen
+                        </Text>
+                      </View>
+                      <View
+                        accessibilityState={
+                          {
+                            "busy": undefined,
+                            "checked": undefined,
+                            "disabled": undefined,
+                            "expanded": undefined,
+                            "selected": undefined,
+                          }
+                        }
+                        accessibilityValue={
+                          {
+                            "max": undefined,
+                            "min": undefined,
+                            "now": undefined,
+                            "text": undefined,
+                          }
+                        }
+                        accessible={true}
+                        collapsable={false}
+                        focusable={true}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          {
+                            "alignItems": "center",
+                            "backgroundColor": "#003262",
+                            "borderColor": "#26619C",
+                            "borderRadius": 8,
+                            "borderWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "column",
+                            "height": 120,
+                            "justifyContent": "center",
+                            "margin": 2,
+                            "minWidth": 120,
+                            "padding": 8,
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={
+                            {
+                              "color": "white",
+                              "fontSize": 20,
+                              "fontWeight": "bold",
+                              "textAlign": "center",
+                            }
+                          }
+                        >
+                          Go to TestScreen
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
                 </View>
-              </View>
+              </RCTScrollView>
             </View>
           </View>
         </View>

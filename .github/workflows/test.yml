@@ -1,34 +1,41 @@
-name: Run Tests on PR
+name: Run Unit Tests
 on:
   pull_request:
     branches: ['*']
 jobs:
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Create coverage directory
+        run: mkdir -p coverage/
       - name: Run Tests
         id: test
         run: |
-          yarn test --json --outputFile=testRes.json || true
-          result=$(cat testRes.json | jq -r '.testResults[].assertionResults[] | [.ancestorTitles[], .title, .status] | @tsv' | awk -F $'\t' 'BEGIN {OFS = "|" ; print "| Test Suite | Test Name | Result |\n| :--- |:---------------:| :-----|"} NR>0 {if ($NF == "passed") {$NF="✅ Passed"} else if ($NF == "failed") {$NF="❌ Failed"}; print "|" $0 "|"}')
-          testDetails=$(jq -r '"TotalTests: \(.numTotalTests)\nTotalTestSuites: \(.numTotalTestSuites)"' testRes.json)
+          yarn test -- --coverage --json --outputFile=testRes.json || true
+          result=$(cat testRes.json | jq -r '.testResults[].assertionResults[] | [.ancestorTitles[], .title, .status] | @tsv' | awk -F $'\t' 'BEGIN {OFS = "|" ; print "| Test Suite | Test Name | Result |\n| :--- |:---------------| :-----|"} NR>0 {if ($NF == "failed") {$NF="❌ Failed"; print "|" $0 "|"}}')
+          testSummary=$(jq -r '"Test Suites: \(.numFailedTestSuites) failed, \(.numPassedTestSuites) passed, \(.numTotalTestSuites) total","Tests: \(.numFailedTests) failed, \(.numPassedTests) passed, \(.numTotalTests) total","Snapshots: \(.snapshot.unmatched) failed \(.snapshot.matched) passed, \(.snapshot.total) total"' testRes.json)
           failed=$(jq -r '.numFailedTests' testRes.json)
           echo "Failed=$failed" >> $GITHUB_OUTPUT
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "testResult<<$EOF" >> $GITHUB_OUTPUT
           echo "$result" >> $GITHUB_OUTPUT
           echo "$EOF" >> $GITHUB_OUTPUT
-          echo "testCount<<$EOF" >> $GITHUB_OUTPUT
-          echo "$testDetails" >> $GITHUB_OUTPUT
+          echo "testSum<<$EOF" >> $GITHUB_OUTPUT
+          echo "$testSummary" >> $GITHUB_OUTPUT
           echo "$EOF" >> $GITHUB_OUTPUT
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
       - name: Update Pull Request Description
         if: always() && github.event_name == 'pull_request'
         uses: unsplash/comment-on-pr@v1.3.0
@@ -38,10 +45,15 @@ jobs:
           check_for_duplicate_msg: false
           msg: |
             ## Test Results
-            ${{ steps.test.outputs.testCount }}
-            The test results are in! Here's the coverage report:
+            The test results are in! Here's the test summary:
+
+            ${{ steps.test.outputs.testSum }}
 
             ${{ steps.test.outputs.testResult }}
+
+            ## Coverage Report
+            Download Coverage Report from [here](https://github.com/netradyne/driverapp/actions/runs/${{github.run_id}}#artifacts)
+
       - name: Fail if tests failed
         if: always() && github.event_name == 'pull_request'
         run: exit ${{ steps.test.outputs.failed }}
