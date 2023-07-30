@@ -9,18 +9,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 5,
     borderWidth: 1,
-    borderColor: '#f4f6f8'
+    borderColor: '#f4f6f8',
   },
   inputContainerError: {
-    borderColor: '#cc0011'
+    borderColor: '#cc0011',
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   inputLabel: {
     fontSize: 10,
-    color: '#b4b6b8'
+    color: '#b4b6b8',
   },
   input: {
     color: '#353031',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 3,
     marginRight: 10,
-    flex: 1
+    flex: 1,
   },
   button: {
     backgroundColor: '#9374b7',
@@ -36,20 +36,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 16,
     borderRadius: 10,
-    marginTop: 10
+    marginTop: 10,
   },
   buttonText: {
     color: '#fff',
     fontSize: 14,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   errorContainer: {
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   errorText: {
     fontSize: 14,
-    color: '#cc0011'
-  }
+    color: '#cc0011',
+  },
 });
 
 interface InputProps extends TextInputProps {

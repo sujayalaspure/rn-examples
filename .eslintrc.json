@@ -36,7 +36,7 @@
     "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/semi": "off",
-    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "warn",
     "@typescript-eslint/no-unused-vars": "error",
     "import/no-extraneous-dependencies": "off",
     "react/function-component-definition": "off",
@@ -63,6 +63,8 @@
         "ignoreTemplateLiterals": true,
         "ignoreRegExpLiterals": true
       }
-    ]
+    ],
+    "react-native/no-inline-styles": "off",
+    "no-param-reassign": [2, { "props": false }]
   }
 }

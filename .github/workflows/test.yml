@@ -52,7 +52,7 @@ jobs:
             ${{ steps.test.outputs.testResult }}
 
             ## Coverage Report
-            Download Coverage Report from [here](https://github.com/netradyne/driverapp/actions/runs/${{github.run_id}}#artifacts)
+            Download Coverage Report from [here](https://github.com/sujayalaspure/rn-examples/actions/runs/${{github.run_id}}#artifacts)
 
       - name: Fail if tests failed
         if: always() && github.event_name == 'pull_request'
