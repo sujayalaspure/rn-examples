@@ -12,14 +12,14 @@ const TestScreen = () => {
   const [modalConfig, setModalConfig] = useState({
     visible: false,
     title: '',
-    url: ''
+    url: '',
   });
   const [dataSource, setDataSource] = useState<ImageItem[]>([]);
 
   useEffect(() => {
     const items = [...Array(8)].map((v, i) => ({
       id: i,
-      src: `https://unsplash.it/800/800?image=${i + 1}`
+      src: `https://unsplash.it/800/800?image=${i + 1}`,
     }));
     setDataSource(items);
   }, []);
@@ -28,7 +28,7 @@ const TestScreen = () => {
     setModalConfig({
       visible: true,
       title: 'Test',
-      url: item.src
+      url: item.src,
     });
   };
 
@@ -36,7 +36,7 @@ const TestScreen = () => {
     setModalConfig({
       visible: false,
       title: '',
-      url: ''
+      url: '',
     });
   };
 
@@ -45,7 +45,7 @@ const TestScreen = () => {
       <ScrollView contentContainerStyle={{ height: 1000 }}>
         {dataSource.map(() => (
           <ScrollView horizontal contentContainerStyle={{ width: 1000 }}>
-            {dataSource.map((Hitem: ImageItem) => (
+            {dataSource.slice(0, 3).map((Hitem: ImageItem) => (
               <MenuButton src={Hitem.src} backdropOpacity={0.6} showImage onPress={() => openModal(Hitem)} />
             ))}
           </ScrollView>
@@ -78,30 +78,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 100
+    height: 100,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 10,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
   },
   imageWrapper: {
     // backgroundColor: 'yellow'
   },
   image: {
     height: 500,
-    resizeMode: 'contain'
-  }
+    resizeMode: 'contain',
+  },
 });

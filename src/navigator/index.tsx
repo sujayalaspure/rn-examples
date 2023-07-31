@@ -8,10 +8,10 @@ const Stack = createNativeStackNavigator();
 function Navigator() {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
       {screenlist.map(screen => (
         <Stack.Screen key={screen.name} {...screen} />
       ))}
+      <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );
 }
