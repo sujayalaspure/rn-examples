@@ -63,6 +63,13 @@ function RootLayoutNav() {
             headerBackTitleVisible: false,
           }}
         />
+        <Stack.Screen
+          name="maskedTabbar"
+          options={{
+            headerTitle: "Masked Tabbar",
+            headerBackTitleVisible: false,
+          }}
+        />
         <Stack.Screen name="modal" options={{presentation: "modal"}} />
       </Stack>
     </ThemeProvider>
