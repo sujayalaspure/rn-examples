@@ -5,4 +5,10 @@ export const projects = [
     image: "https://picsum.photos/200/300",
     link: "/bottomsheet",
   },
+  {
+    title: "Masked Top Tabbar",
+    description: "Project 1 description",
+    image: "https://picsum.photos/200/300",
+    link: "/maskedTabbar",
+  },
 ]

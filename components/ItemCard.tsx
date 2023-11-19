@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderRadius: 8,
     overflow: "hidden",
+    marginVertical: 8,
   },
   link: {
     padding: 20,
