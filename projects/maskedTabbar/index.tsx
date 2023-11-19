@@ -10,10 +10,6 @@ const MaskedTabbar = () => {
   const [scrollX, setScrollX] = useState(0)
   const currentIndex = useSharedValue(0)
 
-  const viewableItemsChanged = useRef(({viewableItems}: any) => {
-    console.log(viewableItems[0].index)
-  }).current
-
   const scrollTo = (i: number) => {
     currentIndex.value = i
     slideRef.current?.scrollToIndex({index: i})
@@ -31,7 +27,6 @@ const MaskedTabbar = () => {
         keyExtractor={(_, index) => index.toString()}
         pagingEnabled
         bounces={false}
-        onViewableItemsChanged={viewableItemsChanged}
         scrollEventThrottle={16}
         onScroll={(e) => {
           setScrollX(e.nativeEvent.contentOffset.x)

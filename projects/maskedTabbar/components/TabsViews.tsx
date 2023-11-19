@@ -43,7 +43,6 @@ type TabItemProps = {
 }
 
 const TabItem = ({icon, iconOutline, label, onPress, index, layoutWidth, scrollX}: TabItemProps) => {
-  console.log("TabItem", scrollX, layoutWidth)
   const inputRange = TABS.map((_, i) => i * layoutWidth)
   const outputRange = TABS.map((_, i) => {
     const diff = i - index
