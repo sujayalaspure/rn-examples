@@ -20,6 +20,8 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    // backgroundColor: "#F2F3F4",
     paddingHorizontal: 16,
     paddingVertical: 20,
   },

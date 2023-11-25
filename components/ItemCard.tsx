@@ -11,7 +11,7 @@ const ItemCard = ({title, link}: Props) => {
   return (
     <View style={styles.container}>
       <Link href={link} style={styles.link}>
-        <Text>{title}</Text>
+        <Text style={styles.text}>{title}</Text>
       </Link>
     </View>
   )
@@ -26,7 +26,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     marginVertical: 8,
   },
+  text: {
+    color: "#000000",
+  },
   link: {
     padding: 20,
+    backgroundColor: "#ffffdd",
   },
 })
