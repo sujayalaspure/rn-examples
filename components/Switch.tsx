@@ -12,7 +12,6 @@ const Switch = ({label, value, onValueChange}: Props) => {
   return (
     <View style={styles.container}>
       <Text>{label}</Text>
-      <Spacer width={10} />
       <RNSwitch value={value} onValueChange={onValueChange} />
     </View>
   )
@@ -22,7 +21,9 @@ export default Switch
 
 const styles = StyleSheet.create({
   container: {
+    paddingVertical: 10,
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
   },
 })
