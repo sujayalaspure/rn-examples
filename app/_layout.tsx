@@ -47,12 +47,15 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack
+        screenOptions={{
+          headerBackTitleVisible: false,
+        }}
+      >
         <Stack.Screen
           name="index"
           options={{
             headerTitle: "Home Screen",
-            headerBackVisible: false,
           }}
         />
         <Stack.Screen name="(tabs)" options={{headerShown: false}} />
@@ -60,14 +63,18 @@ function RootLayoutNav() {
           name="bottomsheet"
           options={{
             headerTitle: "Bottom Sheet",
-            headerBackTitleVisible: false,
           }}
         />
         <Stack.Screen
           name="maskedTabbar"
           options={{
             headerTitle: "Masked Tabbar",
-            headerBackTitleVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="carousalSlider"
+          options={{
+            headerTitle: "Animated Carousal Slider",
           }}
         />
         <Stack.Screen name="modal" options={{presentation: "modal"}} />

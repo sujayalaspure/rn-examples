@@ -8,7 +8,7 @@ import {Text, View} from "./Themed"
 import {Link} from "expo-router"
 
 export default function EditScreenInfo({path}: {path: string}) {
-  console.log("EditScreenInfo", path)
+  // console.log("EditScreenInfo", path)
   return (
     <View>
       <View style={styles.getStartedContainer}>

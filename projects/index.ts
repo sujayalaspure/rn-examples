@@ -11,4 +11,10 @@ export const projects = [
     image: "https://picsum.photos/200/300",
     link: "/maskedTabbar",
   },
+  {
+    title: "Animated Carousel Slider",
+    description: "Animated Carousel Slider with Paging Control",
+    image: "https://picsum.photos/200/300",
+    link: "/carousalSlider",
+  },
 ]

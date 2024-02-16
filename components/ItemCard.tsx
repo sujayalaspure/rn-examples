@@ -1,6 +1,7 @@
-import {View, Text, StyleSheet} from "react-native"
+import {StyleSheet} from "react-native"
 import React from "react"
 import {Link} from "expo-router"
+import Animated from "react-native-reanimated"
 
 type Props = {
   title: string
@@ -9,11 +10,13 @@ type Props = {
 
 const ItemCard = ({title, link}: Props) => {
   return (
-    <View style={styles.container}>
+    <Animated.View sharedTransitionTag={`view_${title}`} style={styles.container}>
       <Link href={link} style={styles.link}>
-        <Text style={styles.text}>{title}</Text>
+        <Animated.Text sharedTransitionTag={`text_${title}`} style={styles.text}>
+          {title}
+        </Animated.Text>
       </Link>
-    </View>
+    </Animated.View>
   )
 }
 
@@ -31,6 +34,6 @@ const styles = StyleSheet.create({
   },
   link: {
     padding: 20,
-    backgroundColor: "#ffffdd",
+    backgroundColor: "#ffffff",
   },
 })
