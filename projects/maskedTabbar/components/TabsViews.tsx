@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 20,
     backgroundColor: "#DBD7D2",
+    marginVertical: 10,
   },
   iconTextContainer: {
     flexDirection: "row",

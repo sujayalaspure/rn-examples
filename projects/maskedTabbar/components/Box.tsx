@@ -9,7 +9,12 @@ type Props = {
 const Box = ({bgColor, label}: Props) => {
   return (
     <View style={[styles.container, {backgroundColor: bgColor}]}>
-      <Text>{label}</Text>
+      <View style={styles.circle} />
+      <View style={styles.spacing} />
+      <View>
+        <View style={styles.line} />
+        <View style={[styles.line, {width: 100}]} />
+      </View>
     </View>
   )
 }
@@ -24,5 +29,23 @@ const styles = StyleSheet.create({
     padding: 10,
     aspectRatio: 1,
     margin: 10,
+  },
+  circle: {
+    height: 50,
+    width: 50,
+    opacity: 0.2,
+    backgroundColor: "white",
+    borderRadius: 25,
+  },
+  line: {
+    height: 10,
+    width: 150,
+    borderRadius: 5,
+    opacity: 0.2,
+    backgroundColor: "white",
+    marginVertical: 5,
+  },
+  spacing: {
+    height: 30,
   },
 })
