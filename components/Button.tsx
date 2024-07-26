@@ -2,7 +2,7 @@ import {Pressable, PressableProps, StyleSheet, Text} from "react-native"
 import React from "react"
 
 interface Props extends PressableProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   type?: "link" | "button"
   title?: string
 }

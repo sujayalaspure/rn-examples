@@ -56,9 +56,10 @@ function RootLayoutNav() {
           name="index"
           options={{
             headerTitle: "Home Screen",
+            headerBackVisible: false,
           }}
         />
-        <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+        {/* <Stack.Screen name="(tabs)" options={{headerShown: false}} /> */}
         <Stack.Screen
           name="bottomsheet"
           options={{
@@ -75,6 +76,12 @@ function RootLayoutNav() {
           name="carousalSlider"
           options={{
             headerTitle: "Animated Carousal Slider",
+          }}
+        />
+        <Stack.Screen
+          name="testPage"
+          options={{
+            headerTitle: "Test Page",
           }}
         />
         <Stack.Screen name="modal" options={{presentation: "modal"}} />
