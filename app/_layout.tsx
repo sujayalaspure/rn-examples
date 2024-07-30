@@ -84,6 +84,13 @@ function RootLayoutNav() {
             headerTitle: "Test Page",
           }}
         />
+        <Stack.Screen
+          name="testui"
+          options={{
+            headerTitle: "Test Page",
+            headerShown: false,
+          }}
+        />
         <Stack.Screen name="modal" options={{presentation: "modal"}} />
       </Stack>
     </ThemeProvider>

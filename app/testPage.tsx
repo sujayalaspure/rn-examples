@@ -1,12 +1,14 @@
 import {View, Text, StyleSheet, TextInput, Pressable} from "react-native"
-import React, {useRef, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import Animated, {useAnimatedStyle, withSpring} from "react-native-reanimated"
+import {Link} from "expo-router"
 
 type Props = {}
 
 const TestPage = (props: Props) => {
   const [isFocused, setIsFocused] = useState(false)
   const inputRef = useRef<TextInput>(null)
+  const [timer, setTimer] = useState(0)
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -16,6 +18,16 @@ const TestPage = (props: Props) => {
       padding: withSpring(isFocused ? 4 : 0),
     }
   })
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer((prev) => prev + 1)
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -27,6 +39,10 @@ const TestPage = (props: Props) => {
       >
         <Text>Close</Text>
       </Pressable>
+      <Text>Timer: {timer}</Text>
+      <Link href="/testui">
+        <Text>Go to testUI</Text>
+      </Link>
       <View style={styles.box}>
         <Animated.Text style={[styles.placeholderText, animatedStyle]}>Search</Animated.Text>
         <TextInput
@@ -48,9 +64,9 @@ export default TestPage
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
-    flex: 1,
+    // flex: 1,
     backgroundColor: "white",
   },
   box: {
