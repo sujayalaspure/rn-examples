@@ -26,23 +26,17 @@ const BottomsheetView = () => {
     <>
       <View style={styles.container}>
         <View>
-          <Button title="Open"onPress={() => bottomSheetRef.current?.open()}
-          />
+          <Button title="Open (i-0)" onPress={() => bottomSheetRef.current?.open()} />
           <Spacer height={10} />
-          <Button title="Close"onPress={() => bottomSheetRef.current?.close()}
-          />
+          <Button title="Close" onPress={() => bottomSheetRef.current?.close()} />
           <Spacer height={10} />
-          <Button title="index 0"onPress={() => bottomSheetRef.current?.snapToIndex(0)}
-          />
+          <Button title="index 0 (25%)" onPress={() => bottomSheetRef.current?.snapToIndex(0)} />
           <Spacer height={10} />
-          <Button title="index 1"onPress={() => bottomSheetRef.current?.snapToIndex(1)}
-          />
+          <Button title="index 1 (50%)" onPress={() => bottomSheetRef.current?.snapToIndex(1)} />
           <Spacer height={10} />
-          <Button title="index 2"onPress={() => bottomSheetRef.current?.snapToIndex(2)}
-          />
+          <Button title="index 2 (75%)" onPress={() => bottomSheetRef.current?.snapToIndex(2)} />
           <Spacer height={10} />
-          <Button title="index 3"onPress={() => bottomSheetRef.current?.snapToPosition("100%")}
-          />
+          <Button title="Snap to position 100%" onPress={() => bottomSheetRef.current?.snapToPosition("100%")} />
           <Spacer height={20} />
           <Switch label="Can Close" value={bottomSheetConfig.canClose} onValueChange={updateConfig("canClose")} />
           <Spacer height={10} />
@@ -55,7 +49,7 @@ const BottomsheetView = () => {
       </View>
 
       {/* Bottom Sheet Component */}
-      <BottomSheet ref={bottomSheetRef} snapPoints={['25%', '50%', "75%"]} snapIndex={0} {...bottomSheetConfig}>
+      <BottomSheet ref={bottomSheetRef} snapPoints={["25%", "50%", "75%"]} snapIndex={0} {...bottomSheetConfig}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) => (
           <RowItem index={index} key={index} />
         ))}

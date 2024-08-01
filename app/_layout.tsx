@@ -84,6 +84,12 @@ function RootLayoutNav() {
             headerTitle: "Test Page",
           }}
         />
+        <Stack.Screen
+          name="animatedModalScreen"
+          options={{
+            headerTitle: "Animated Modal",
+          }}
+        />
         <Stack.Screen name="modal" options={{presentation: "modal"}} />
       </Stack>
     </ThemeProvider>

@@ -36,9 +36,9 @@ export type BottomSheetRef = {
   snapToPosition: (position: string) => void
 }
 
-const convertPercentToNumber = (percentString:string) => {
-  return parseFloat(percentString) / 100;
-};
+const convertPercentToNumber = (percentString: string) => {
+  return parseFloat(percentString) / 100
+}
 
 const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) => {
   const {children, canClose, showBackdrop, snapPoints, snapIndex} = props
@@ -46,11 +46,14 @@ const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) =>
   const context = useSharedValue({y: 0})
   const isSheetVisible = useSharedValue(false)
   const panGestureRef = React.useRef<GestureType>(Gesture.Pan())
-  const snapPositions = useMemo(() => snapPoints?.map((item)=>convertPercentToNumber(item)*screenHeight), [snapPoints])
+  const snapPositions = useMemo(
+    () => snapPoints?.map((item) => convertPercentToNumber(item) * screenHeight),
+    [snapPoints]
+  )
 
   const [isTopReached, setIsTopReached] = useState(false)
 
-  const maxTopPosition = -1 * (snapPositions[snapPositions?.length - 1] ||1)
+  const maxTopPosition = -1 * (snapPositions[snapPositions?.length - 1] || 1)
   const maxBottomPosition = snapPositions[0]
 
   const scrollTo = useCallback((y: number) => {
@@ -61,17 +64,17 @@ const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) =>
   }, [])
 
   const snapToIndex = useCallback((index: number) => {
-    if(index < 0 || index >= snapPositions.length) return;
+    if (index < 0 || index >= snapPositions.length) return
     scrollTo(snapPositions[index])
   }, [])
 
   const snapToPosition = useCallback((position: string) => {
-    const pos = convertPercentToNumber(position)*screenHeight
+    const pos = convertPercentToNumber(position) * screenHeight
     scrollTo(pos)
   }, [])
 
   const open = useCallback(() => {
-    const heightFromBottom = snapPositions[0];
+    const heightFromBottom = snapPositions[0]
     console.log("Sheet open", heightFromBottom, snapPositions)
 
     scrollTo(heightFromBottom)
@@ -83,7 +86,12 @@ const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) =>
     if (canClose) scrollTo(0)
   }, [canClose])
 
-  useImperativeHandle(ref, () => ({snapToIndex, open, close, snapToPosition}), [snapToIndex, open, close, snapToPosition])
+  useImperativeHandle(ref, () => ({snapToIndex, open, close, snapToPosition}), [
+    snapToIndex,
+    open,
+    close,
+    snapToPosition,
+  ])
 
   const gesture = Gesture.Pan()
     .onStart(() => {

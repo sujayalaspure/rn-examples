@@ -29,4 +29,10 @@ export const projects = [
     image: "https://picsum.photos/200/300",
     link: "/bottomsheetv2",
   },
+  {
+    title: "Animated Modal",
+    description: "Project 1 description",
+    image: "https://picsum.photos/200/300",
+    link: "/animatedModalScreen",
+  },
 ]
