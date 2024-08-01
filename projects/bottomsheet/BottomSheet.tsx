@@ -1,5 +1,5 @@
 import {View, StyleSheet} from "react-native"
-import React, {forwardRef, useCallback, useImperativeHandle, useMemo, useState} from "react"
+import React, {forwardRef, useCallback, useImperativeHandle, useState} from "react"
 import {
   Gesture,
   GestureDetector,
@@ -25,36 +25,28 @@ export type BottomSheetProps = {
   children: React.ReactNode
   showBackdrop?: boolean
   canClose?: boolean
-  snapPoints: [string, ...string[]]
-  snapIndex?: number
+  sheetHeight?: number
+  snapPoints?: {top?: number; bottom?: number}
   onClosed?: () => void
 }
 export type BottomSheetRef = {
+  scrollTo: (y: number) => void
   open: () => void
+  isActive?: () => boolean
   close: () => void
-  snapToIndex: (index: number) => void
-  snapToPosition: (position: string) => void
-}
-
-const convertPercentToNumber = (percentString: string) => {
-  return parseFloat(percentString) / 100
 }
 
 const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) => {
-  const {children, canClose, showBackdrop, snapPoints, snapIndex} = props
+  const {children, canClose, sheetHeight, showBackdrop} = props
   const translateY = useSharedValue(0)
   const context = useSharedValue({y: 0})
   const isSheetVisible = useSharedValue(false)
   const panGestureRef = React.useRef<GestureType>(Gesture.Pan())
-  const snapPositions = useMemo(
-    () => snapPoints?.map((item) => convertPercentToNumber(item) * screenHeight),
-    [snapPoints]
-  )
 
   const [isTopReached, setIsTopReached] = useState(false)
 
-  const maxTopPosition = -1 * (snapPositions[snapPositions?.length - 1] || 1)
-  const maxBottomPosition = snapPositions[0]
+  const maxTopPosition = -1 * screenHeight
+  const maxBottomPosition = screenHeight * 0.3
 
   const scrollTo = useCallback((y: number) => {
     "worklet"
@@ -63,22 +55,10 @@ const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) =>
     isSheetVisible.value = y !== 0
   }, [])
 
-  const snapToIndex = useCallback((index: number) => {
-    if (index < 0 || index >= snapPositions.length) return
-    scrollTo(snapPositions[index])
-  }, [])
-
-  const snapToPosition = useCallback((position: string) => {
-    const pos = convertPercentToNumber(position) * screenHeight
-    scrollTo(pos)
-  }, [])
-
   const open = useCallback(() => {
-    const heightFromBottom = snapPositions[0]
-    console.log("Sheet open", heightFromBottom, snapPositions)
-
-    scrollTo(heightFromBottom)
-  }, [snapPoints, snapIndex])
+    console.log("Sheet open")
+    scrollTo(sheetHeight || 200)
+  }, [])
 
   const close = useCallback(() => {
     console.log("Sheet close", canClose)
@@ -86,25 +66,19 @@ const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) =>
     if (canClose) scrollTo(0)
   }, [canClose])
 
-  useImperativeHandle(ref, () => ({snapToIndex, open, close, snapToPosition}), [
-    snapToIndex,
-    open,
-    close,
-    snapToPosition,
-  ])
+  useImperativeHandle(ref, () => ({scrollTo, open, close}), [scrollTo, open, close])
 
   const gesture = Gesture.Pan()
     .onStart(() => {
       context.value = {y: translateY.value}
     })
     .onUpdate(({translationY}: GestureUpdateEvent<PanGestureHandlerEventPayload>) => {
-      console.log("Sheet update", translationY, context.value.y)
       translateY.value = Math.max(maxTopPosition, translationY + context.value.y)
       runOnJS(setIsTopReached)(translateY.value === maxTopPosition)
     })
     .onEnd(() => {
       if (Math.abs(translateY.value) < maxBottomPosition) {
-        scrollTo(canClose ? 0 : snapPositions[0])
+        scrollTo(canClose ? 0 : sheetHeight || 400)
       } else if (Math.abs(translateY.value) > Math.abs(maxTopPosition) * 0.8) {
         scrollTo(maxTopPosition)
       }
@@ -139,11 +113,20 @@ const BottomSheet = forwardRef<BottomSheetRef, BottomSheetProps>((props, ref) =>
 
   return (
     <>
-      <Animated.View
-        onTouchStart={showBackdrop ? close : undefined}
-        animatedProps={rBackdropProps}
-        style={[StyleSheet.absoluteFillObject, rBackDropStyle]}
-      />
+      {true && (
+        <Animated.View
+          onTouchStart={showBackdrop ? close : undefined}
+          animatedProps={rBackdropProps}
+          style={[StyleSheet.absoluteFillObject, rBackDropStyle]}
+        >
+          {/* <BlurView
+          style={styles.absolute}
+          blurType="dark"
+          blurAmount={5}
+          reducedTransparencyFallbackColor="rgba(0,0,0,0.5)"
+        /> */}
+        </Animated.View>
+      )}
       <GestureDetector gesture={gesture}>
         <Animated.View style={[styles.container, rBottomSheetStyle, rAnimatedBorderRadius]}>
           <Animated.View style={[styles.topBar, rAnimatedBorderRadius]}>
