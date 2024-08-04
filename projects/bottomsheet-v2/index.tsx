@@ -1,11 +1,12 @@
 import {View, Text, StyleSheet} from "react-native"
 import React, {useRef, useState} from "react"
 import Button from "@components/Button"
-import BottomSheet, {BottomSheetProps, BottomSheetRef} from "@projects/bottomsheet/BottomSheet"
+
 import {screenHeight} from "@constants/scalingUnit"
 import Switch from "@components/Switch"
 import Spacer from "@components/atoms/Spacer"
 import RowItem from "@projects/bottomsheet/component/RowItem"
+import BottomSheet, {BottomSheetProps, BottomSheetRef} from "@projects/bottomsheet-v2/BottomSheet"
 
 type BottomSheetConfigType = keyof BottomSheetProps
 
@@ -15,9 +16,6 @@ const BottomsheetView = () => {
     canClose: true,
     showBackdrop: true,
   })
-  // useEffect(() => {
-  //   bottomSheetRef.current?.open()
-  // }, [])
 
   const updateConfig = (key: BottomSheetConfigType) => (value: any) =>
     setBottomSheetConfig((prev) => ({...prev, [key]: value}))
