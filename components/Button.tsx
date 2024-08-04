@@ -5,11 +5,12 @@ interface Props extends PressableProps {
   children?: React.ReactNode
   type?: "link" | "button"
   title?: string
+  color?: string
 }
 
-const Button = ({children, title, type = "button", ...rest}: Props) => {
+const Button = ({children, title, type = "button", color = "#007FFF", ...rest}: Props) => {
   return (
-    <Pressable style={styles.container} {...rest}>
+    <Pressable style={[styles.container, {backgroundColor: color}]} {...rest}>
       {title ? <Text style={styles.text}>{title}</Text> : children}
     </Pressable>
   )
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#007FFF",
     borderRadius: 5,
+    alignItems: "center",
   },
   text: {
     color: "white",
